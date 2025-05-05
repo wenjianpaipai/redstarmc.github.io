@@ -1,0 +1,450 @@
+/* 基础样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f7fa;
+}
+
+/* 导航栏样式 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 -8px 15px rgba(144, 238, 144, 0.7); /* 加粗的向上淡绿色阴影 */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  position: relative;
+}
+
+/* 添加凸出的梯形部分 */
+.navbar::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 30px;
+  background-color: #ffffff;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  box-shadow: 0 4px 15px rgba(144, 238, 144, 0.7); /* 加粗的阴影 */
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  z-index: -1;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  width: 40%; /* 设置左右两侧各占40%的宽度 */
+}
+
+.left {
+  justify-content: space-between; /* 左侧两个按钮平均分布 */
+  padding-right: 1rem;
+}
+
+.right {
+  justify-content: space-between; /* 右侧两个按钮平均分布 */
+  padding-left: 1rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%; /* Logo区域占20%的宽度 */
+}
+
+.nav-item {
+  position: relative;
+  width: 48%; /* 每个导航项占据其父容器的48%宽度，留一点间距 */
+  text-align: center;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.8rem 0.5rem;
+  display: block; /* 改为block以占满整个宽度 */
+  transition: all 0.3s;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+.nav-item a:hover {
+  color: #2e8b57; /* 深绿色文字 */
+  background-color: rgba(144, 238, 144, 0.2); /* 淡绿色背景 */
+  transform: translateY(-2px); /* 轻微上浮效果 */
+  box-shadow: 0 2px 8px rgba(144, 238, 144, 0.5); /* 悬浮时添加阴影 */
+}
+
+/* 下拉菜单样式 */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(144, 238, 144, 0.3);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  left: 50%; /* 居中对齐 */
+  transform: translateX(-50%); /* 居中对齐 */
+  animation: fadeInDown 0.3s ease-out; /* 添加渐变出现动画 */
+  opacity: 0;
+  top: 80%;
+  pointer-events: none;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(144, 238, 144, 0.2);
+  color: #2e8b57;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  top: 100%;
+  pointer-events: auto;
+}
+
+/* 主要内容区域样式 - 㗊字形布局 */
+main {
+  padding: 2rem;
+  margin-top: 30px; /* 为凸出部分留出空间 */
+}
+
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-block {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;
+  min-height: 300px;
+}
+
+.content-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.block-title {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+/* 服务器IP板块样式 */
+.server-ip-content {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 3rem);
+}
+
+.ip-details {
+  margin: 1rem 0;
+}
+
+.ip-details p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.server-ip-image {
+  margin-top: auto;
+  text-align: center;
+}
+
+.ip-image {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: 4px;
+}
+
+/* 近期公告板块样式 */
+.announcement-content {
+  margin-top: 3rem;
+  height: calc(100% - 3rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.announcement-page {
+  display: none;
+  flex-grow: 1;
+}
+
+.announcement-page.active {
+  display: block;
+}
+
+.announcement-item {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.announcement-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.announcement-item .date {
+  display: block;
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin-top: 0.5rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.page-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.page-btn:hover {
+  background-color: rgba(144, 238, 144, 0.2);
+  border-color: #2e8b57;
+}
+
+.page-btn.active {
+  background-color: #2e8b57;
+  color: white;
+  border-color: #2e8b57;
+}
+
+/* 管理组名单板块样式 */
+.admin-list {
+  cursor: pointer;
+}
+
+.admin-content {
+  margin-top: 3rem;
+  height: calc(100% - 3rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-item {
+  margin-bottom: 1rem;
+}
+
+.admin-item h3 {
+  font-size: 1.1rem;
+  color: #2e8b57;
+  margin-bottom: 0.5rem;
+}
+
+.click-hint {
+  margin-top: auto;
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  padding: 0.5rem;
+  background-color: rgba(144, 238, 144, 0.1);
+  border-radius: 4px;
+}
+
+/* 宣传片板块样式 */
+.video-content {
+  margin-top: 3rem;
+  height: calc(100% - 3rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 宽高比 */
+  margin-bottom: 1rem;
+}
+
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgba(46, 139, 87, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.play-button:hover {
+  background-color: rgba(46, 139, 87, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-description {
+  margin-top: 1rem;
+}
+
+.video-description h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* 页脚样式 */
+footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .logo {
+    order: -1;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .nav-section {
+    width: 100%;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    width: 48%;
+    margin: 0;
+  }
+
+  /* 调整响应式下的凸出部分 */
+  .navbar::after {
+    width: 120px;
+    bottom: -15px;
+  }
+
+  /* 调整下拉菜单在移动设备上的位置 */
+  .dropdown-content {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    transform: none;
+  }
+
+  .content-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-section {
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    margin: 0.5rem;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    display: none;
+    animation: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+    opacity: 1;
+  }
+}
