@@ -4,206 +4,309 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理组详细信息</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: "Arial", sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f7fa;
-            padding: 2rem;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-        
-        .admin-section {
-            margin-bottom: 2rem;
-        }
-        
-        .admin-section h2 {
-            color: #2e8b57;
-            border-bottom: 2px solid #2e8b57;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .admin-card {
-            display: flex;
-            margin-bottom: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .admin-avatar {
-            width: 100px;
-            height: 100px;
-            background-color: #e0e0e0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .admin-info {
-            padding: 1rem;
-            flex-grow: 1;
-        }
-        
-        .admin-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        
-        .admin-role {
-            color: #2e8b57;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .admin-description {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .back-button {
-            display: block;
-            width: 200px;
-            margin: 2rem auto;
-            padding: 0.8rem;
-            background-color: #2e8b57;
-            color: white;
-            text-align: center;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        
-        .back-button:hover {
-            background-color: #236b43;
-        }
-    </style>
+    <link rel="stylesheet" href="css/ops-styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>管理组详细信息</h1>
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <div class="nav-section left">
+            <div class="nav-item dropdown">
+                <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=T2Z6WsEOph0Q6oZ_YqovOuJzLdKmRTt4&authKey=jXVihkw9kgF4kbaGNtzZfjo3kzG7soB9QT4jk7nI0M%2BKg%2B848yp%2FZv0XAEFJHkpQ&noverify=0&group_code=568197092" target="_blank">加入q群 <span class="dropdown-arrow">▼</span></a>
+                <div class="dropdown-content">
+                    <a href="https://pd.qq.com/s/1dxf9takj" target="_blank">加入qq频道</a>
+                    <a href="#" class="telegram-link">加入telegram（q群互通）</a>
+                    <a href="https://space.bilibili.com/1132101104" target="_blank">b站主页</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="https://www.redstarmc.top/Wiki/intro" target="_blank">查看wiki</a>
+            </div>
+        </div>
         
-        <div class="admin-section">
-            <h2>服务器所有者</h2>
-            <div class="admin-card">
-                <div class="admin-avatar">头像</div>
+        <div class="logo">
+            <img src="/placeholder.svg?height=60&width=120" alt="公司Logo">
+        </div>
+        
+        <div class="nav-section right">
+            <div class="nav-item">
+                <a href="https://scn7ok9p5g9q.feishu.cn/share/base/form/shrcneyQmmNouWMOhiOe6t7NQ4g" target="_blank">我想成为管理</a>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#">其他投票 <span class="dropdown-arrow">▼</span></a>
+                <div class="dropdown-content">
+                    <a href="#">活动投票</a>
+                    <a href="#">规则投票</a>
+                    <a href="#">管理投票</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="notification-bubble" class="notification-bubble">Telegram频道暂未开放！</div>
+
+    <h1>管理组详细信息</h1>
+    
+    <div class="admin-profiles-container">
+        <!-- 管理员1 -->
+        <div class="admin-profile active" data-admin="1" data-bg="admin1-bg.jpg">
+            <div class="admin-profile-content">
+                <div class="admin-skin">
+                    <img src="images/skinact/admin1.png" alt="管理员1皮肤">
+                </div>
                 <div class="admin-info">
-                    <div class="admin-name">PlayerName1</div>
+                    <h2 class="admin-name">PlayerName1</h2>
                     <div class="admin-role">服务器所有者</div>
-                    <div class="admin-description">
-                        服务器创始人，负责服务器的整体运营和发展方向。2023年创建服务器，拥有5年以上的Minecraft服务器管理经验。
+                    <div class="admin-quote">
+                        "创造不仅仅是建造方块，而是建造梦想。每一个服务器都是一个新的世界，每一个玩家都是这个世界的创造者。"
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="admin-section">
-            <h2>管理员</h2>
-            <div class="admin-card">
-                <div class="admin-avatar">头像</div>
+        <!-- 管理员2 -->
+        <div class="admin-profile" data-admin="2" data-bg="admin2-bg.jpg">
+            <div class="admin-profile-content">
+                <div class="admin-skin">
+                    <img src="images/skinact/admin2.png" alt="管理员2皮肤">
+                </div>
                 <div class="admin-info">
-                    <div class="admin-name">PlayerName2</div>
+                    <h2 class="admin-name">PlayerName2</h2>
                     <div class="admin-role">技术管理员</div>
-                    <div class="admin-description">
-                        负责服务器技术维护和插件管理，拥有丰富的服务器配置经验。
+                    <div class="admin-quote">
+                        "代码如诗，插件如画。技术的魅力在于它能让不可能变为可能，让想象成为现实。"
                     </div>
                 </div>
             </div>
-            
-            <div class="admin-card">
-                <div class="admin-avatar">头像</div>
+        </div>
+        
+        <!-- 管理员3 -->
+        <div class="admin-profile" data-admin="3" data-bg="admin3-bg.jpg">
+            <div class="admin-profile-content">
+                <div class="admin-skin">
+                    <img src="images/skinact/admin3.png" alt="管理员3皮肤">
+                </div>
                 <div class="admin-info">
-                    <div class="admin-name">PlayerName3</div>
+                    <h2 class="admin-name">PlayerName3</h2>
                     <div class="admin-role">社区管理员</div>
-                    <div class="admin-description">
-                        负责社区活动组织和玩家关系维护，善于组织各类有趣的服务器活动。
-                    </div>
-                </div>
-            </div>
-            
-            <div class="admin-card">
-                <div class="admin-avatar">头像</div>
-                <div class="admin-info">
-                    <div class="admin-name">PlayerName4</div>
-                    <div class="admin-role">内容管理员</div>
-                    <div class="admin-description">
-                        负责服务器内容更新和创意设计，是一位出色的建筑师。
+                    <div class="admin-quote">
+                        "社区的力量来自每一位玩家的参与。我们不仅仅是一个游戏服务器，更是一个充满友谊和创造力的大家庭。"
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="admin-section">
-            <h2>版主</h2>
-            <div class="admin-card">
-                <div class="admin-avatar">头像</div>
-                <div class="admin-info">
-                    <div class="admin-name">PlayerName5</div>
-                    <div class="admin-role">生存服版主</div>
-                    <div class="admin-description">
-                        负责生存服务器的日常管理和玩家问题解决。
-                    </div>
-                </div>
-            </div>
-            
-            <div class="admin-card">
-                <div class="admin-avatar">头像</div>
-                <div class="admin-info">
-                    <div class="admin-name">PlayerName6</div>
-                    <div class="admin-role">创造服版主</div>
-                    <div class="admin-description">
-                        负责创造服务器的建筑审核和秩序维护。
-                    </div>
-                </div>
-            </div>
-            
-            <div class="admin-card">
-                <div class="admin-avatar">头像</div>
-                <div class="admin-info">
-                    <div class="admin-name">PlayerName7</div>
-                    <div class="admin-role">小游戏版主</div>
-                    <div class="admin-description">
-                        负责小游戏服务器的活动组织和公平游戏维护。
-                    </div>
-                </div>
-            </div>
-            
-            <div class="admin-card">
-                <div class="admin-avatar">头像</div>
-                <div class="admin-info">
-                    <div class="admin-name">PlayerName8</div>
-                    <div class="admin-role">论坛版主</div>
-                    <div class="admin-description">
-                        负责论坛和社交媒体的管理和内容审核。
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <a href="index.html" class="back-button">返回首页</a>
     </div>
+    
+    <!-- 分页指示器 -->
+    <div class="pagination-indicator">
+        <div class="page-dot active" data-page="1"></div>
+        <div class="page-dot" data-page="2"></div>
+        <div class="page-dot" data-page="3"></div>
+        <div class="page-dot" data-page="4"></div>
+        <div class="page-dot" data-page="5"></div>
+        <div class="page-dot" data-page="6"></div>
+        <div class="page-dot" data-page="7"></div>
+        <div class="page-dot" data-page="8"></div>
+    </div>
+    
+    <!-- 导航控制 -->
+    <div class="navigation-controls">
+        <button class="nav-button prev-button" disabled>
+            <span>&#8592;</span> 上一位
+        </button>
+        <button class="nav-button next-button">
+            下一位 <span>&#8594;</span>
+        </button>
+    </div>
+    
+    <a href="index.html" class="back-button">返回首页</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航栏隐藏/显示效果
+            const navbar = document.querySelector(".navbar");
+            let isNavbarVisible = false;
+            let navbarTimeout;
+
+            // 初始化导航栏状态
+            setTimeout(() => {
+                navbar.classList.add("visible");
+                isNavbarVisible = true;
+                
+                // 设置自动隐藏计时器
+                startNavbarTimer();
+            }, 1000);
+
+            // 监听导航栏突出部分的鼠标悬停
+            document.addEventListener("mousemove", (e) => {
+                const navbarRect = navbar.getBoundingClientRect();
+                const triggerArea = {
+                    left: navbarRect.left + navbarRect.width / 2 - 80,
+                    right: navbarRect.left + navbarRect.width / 2 + 80,
+                    top: navbarRect.bottom - 20,
+                    bottom: navbarRect.bottom + 10
+                };
+
+                // 检查鼠标是否在导航栏或触发区域内
+                if (
+                    (e.clientY <= navbarRect.bottom && e.clientY >= navbarRect.top && 
+                    e.clientX >= navbarRect.left && e.clientX <= navbarRect.right) ||
+                    (e.clientX >= triggerArea.left && e.clientX <= triggerArea.right && 
+                    e.clientY >= triggerArea.top && e.clientY <= triggerArea.bottom)
+                ) {
+                    if (!isNavbarVisible) {
+                        navbar.classList.add("visible");
+                        isNavbarVisible = true;
+                    }
+                    
+                    // 重置计时器
+                    clearTimeout(navbarTimeout);
+                } else {
+                    // 如果鼠标不在导航栏区域，开始计时器
+                    if (isNavbarVisible) {
+                        clearTimeout(navbarTimeout);
+                        startNavbarTimer();
+                    }
+                }
+            });
+
+            // 设置导航栏自动隐藏计时器
+            function startNavbarTimer() {
+                navbarTimeout = setTimeout(() => {
+                    navbar.classList.remove("visible");
+                    isNavbarVisible = false;
+                }, 2000);
+            }
+            
+            // 通知气泡
+            const telegramLinks = document.querySelectorAll('.telegram-link');
+            const notificationBubble = document.getElementById('notification-bubble');
+            
+            telegramLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 设置通知内容
+                    notificationBubble.textContent = "Telegram频道暂未开放！";
+                    
+                    // 显示通知
+                    notificationBubble.classList.add('show');
+                    
+                    // 3秒后隐藏通知
+                    setTimeout(() => {
+                        notificationBubble.classList.remove('show');
+                    }, 3000);
+                });
+            });
+            
+            // 管理员资料翻页
+            const adminProfiles = document.querySelectorAll('.admin-profile');
+            const pageDots = document.querySelectorAll('.page-dot');
+            const prevButton = document.querySelector('.prev-button');
+            const nextButton = document.querySelector('.next-button');
+            let currentAdmin = 1;
+            const totalAdmins = pageDots.length;
+            
+            // 初始化背景图片
+            updateBackground(currentAdmin);
+            
+            // 初始化
+            updateNavButtons();
+            
+            // 点击分页指示器
+            pageDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const page = parseInt(this.getAttribute('data-page'));
+                    showAdmin(page);
+                });
+            });
+            
+            // 上一位按钮
+            prevButton.addEventListener('click', function() {
+                if (currentAdmin > 1) {
+                    showAdmin(currentAdmin - 1);
+                }
+            });
+            
+            // 下一位按钮
+            nextButton.addEventListener('click', function() {
+                if (currentAdmin < pageDots.length) {
+                    showAdmin(currentAdmin + 1);
+                }
+            });
+            
+            // 显示指定管理员
+            function showAdmin(adminId) {
+                adminProfiles.forEach(profile => {
+                    profile.classList.remove('active');
+                });
+                
+                pageDots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                const targetProfile = document.querySelector(`.admin-profile[data-admin="${adminId}"]`);
+                const targetDot = document.querySelector(`.page-dot[data-page="${adminId}"]`);
+                
+                if (targetProfile) {
+                    targetProfile.classList.add('active');
+                    currentAdmin = adminId;
+                    updateNavButtons();
+                    updateBackground(adminId);
+                }
+                
+                if (targetDot) {
+                    targetDot.classList.add('active');
+                }
+            }
+            
+            // 更新背景图片
+            function updateBackground(adminId) {
+                const activeProfile = document.querySelector(`.admin-profile[data-admin="${adminId}"]`);
+                if (activeProfile) {
+                    const bgImage = activeProfile.getAttribute('data-bg');
+                    document.body.style.backgroundImage = `url("images/background/${bgImage}")`;
+                    document.body.style.backgroundSize = 'cover';
+                    document.body.style.backgroundAttachment = 'fixed';
+                    document.body.style.backgroundPosition = 'center';
+                }
+            }
+            
+            // 更新导航按钮状态
+            function updateNavButtons() {
+                prevButton.disabled = currentAdmin === 1;
+                nextButton.disabled = currentAdmin === pageDots.length;
+            }
+            
+            // 处理下拉菜单
+            const dropdowns = document.querySelectorAll(".dropdown");
+            
+            dropdowns.forEach((dropdown) => {
+                const dropdownLink = dropdown.querySelector("a");
+                
+                dropdownLink.addEventListener("click", (e) => {
+                    // 不阻止默认行为，允许链接跳转
+                    
+                    // 关闭其他打开的下拉菜单
+                    dropdowns.forEach((otherDropdown) => {
+                        if (otherDropdown !== dropdown && otherDropdown.classList.contains("active")) {
+                            otherDropdown.classList.remove("active");
+                        }
+                    });
+                    
+                    // 切换当前下拉菜单的状态
+                    dropdown.classList.toggle("active");
+                });
+            });
+            
+            // 点击页面其他地方关闭下拉菜单
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest(".dropdown")) {
+                    dropdowns.forEach((dropdown) => {
+                        dropdown.classList.remove("active");
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

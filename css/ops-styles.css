@@ -1,0 +1,452 @@
+/* 基础样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #ecf0f1;
+  background-color: #1a1a1a;
+  padding-top: 80px; /* 为导航栏留出空间 */
+}
+
+/* 导航栏样式 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 -8px 15px rgba(144, 238, 144, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transform: translateY(-100%); /* 保持ops页面的导航栏隐藏功能 */
+  transition: transform 0.4s ease-in-out;
+  /* 添加渐变边缘 */
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(to right, transparent, rgba(144, 238, 144, 0.8), rgba(144, 238, 144, 0.8), transparent);
+  border-image-slice: 1;
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+/* 添加凸出的梯形部分 */
+.navbar::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 30px;
+  background-color: #ffffff;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  box-shadow: 0 4px 15px rgba(144, 238, 144, 0.7);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  z-index: -1;
+  cursor: pointer;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.left {
+  justify-content: space-between;
+  padding-right: 1rem;
+}
+
+.right {
+  justify-content: space-between;
+  padding-left: 1rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.nav-item {
+  position: relative;
+  width: 48%;
+  text-align: center;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.8rem 0.5rem;
+  display: block;
+  transition: all 0.3s;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+.nav-item a:hover {
+  color: #2e8b57;
+  background-color: rgba(144, 238, 144, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(144, 238, 144, 0.5);
+}
+
+/* 下拉菜单样式 */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(144, 238, 144, 0.3);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeInDown 0.3s ease-out;
+  opacity: 0;
+  top: 80%;
+  pointer-events: none;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(144, 238, 144, 0.2);
+  color: #2e8b57;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  top: 100%;
+  pointer-events: auto;
+}
+
+/* 通知气泡样式 */
+.notification-bubble {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(46, 139, 87, 0.9);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1100;
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: all 0.3s;
+  max-width: 300px;
+  text-align: center;
+}
+
+.notification-bubble:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  border-width: 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent rgba(46, 139, 87, 0.9);
+}
+
+.notification-bubble.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* 管理员页面样式 */
+.admin-profiles-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem;
+}
+
+.admin-profile {
+  background-color: transparent; /* 移除背景色，取消框 */
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  animation: fadeIn 0.5s ease-out;
+  display: none;
+}
+
+.admin-profile:hover {
+  transform: translateY(-10px);
+}
+
+.admin-profile.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.admin-profile-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-skin {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.admin-skin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.admin-profile:hover .admin-skin img {
+  transform: scale(1.05);
+}
+
+.admin-info {
+  padding: 1.5rem;
+}
+
+.admin-name {
+  font-size: 1.8rem;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.admin-role {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.admin-quote {
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.admin-quote::before {
+  content: "";
+  font-size: 3rem;
+  color: rgba(76, 175, 80, 0.3);
+  position: absolute;
+  top: -1.5rem;
+  left: -0.5rem;
+}
+
+.admin-quote::after {
+  content: "";
+  font-size: 3rem;
+  color: rgba(76, 175, 80, 0.3);
+  position: absolute;
+  bottom: -2.5rem;
+  right: -0.5rem;
+}
+
+.navigation-controls {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.nav-button {
+  background-color: rgba(76, 175, 80, 0.8);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0.5rem;
+}
+
+.nav-button:hover {
+  background-color: rgba(56, 142, 60, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-button:disabled {
+  background-color: rgba(100, 100, 100, 0.7);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.pagination-indicator {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.page-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.page-dot.active {
+  background-color: #4caf50;
+  transform: scale(1.3);
+}
+
+.back-button {
+  display: block;
+  width: 200px;
+  margin: 2rem auto;
+  padding: 0.8rem;
+  background-color: rgba(44, 62, 80, 0.8);
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.back-button:hover {
+  background-color: rgba(26, 37, 47, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .logo {
+    order: -1;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .nav-section {
+    width: 100%;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    width: 48%;
+    margin: 0;
+  }
+
+  /* 调整响应式下的凸出部分 */
+  .navbar::after {
+    width: 120px;
+    bottom: -15px;
+  }
+
+  /* 调整下拉菜单在移动设备上的位置 */
+  .dropdown-content {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    transform: none;
+  }
+
+  .admin-profiles-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-section {
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    margin: 0.5rem;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    display: none;
+    animation: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+    opacity: 1;
+  }
+}

@@ -10,15 +10,15 @@
     <header class="navbar">
         <div class="nav-section left">
             <div class="nav-item dropdown">
-                <a href="#">加入q群 <span class="dropdown-arrow">▼</span></a>
+                <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=T2Z6WsEOph0Q6oZ_YqovOuJzLdKmRTt4&authKey=jXVihkw9kgF4kbaGNtzZfjo3kzG7soB9QT4jk7nI0M%2BKg%2B848yp%2FZv0XAEFJHkpQ&noverify=0&group_code=568197092" target="_blank">加入q群 <span class="dropdown-arrow">▼</span></a>
                 <div class="dropdown-content">
-                    <a href="#">QQ群1: 123456789</a>
-                    <a href="#">QQ群2: 987654321</a>
-                    <a href="#">QQ群3: 135792468</a>
+                    <a href="https://pd.qq.com/s/1dxf9takj" target="_blank">加入qq频道</a>
+                    <a href="#" class="telegram-link">加入telegram（q群互通）</a>
+                    <a href="https://space.bilibili.com/1132101104" target="_blank">b站主页</a>
                 </div>
             </div>
             <div class="nav-item">
-                <a href="#">查看wiki</a>
+                <a href="https://www.redstarmc.top/Wiki/intro" target="_blank">查看wiki</a>
             </div>
         </div>
         
@@ -28,7 +28,7 @@
         
         <div class="nav-section right">
             <div class="nav-item">
-                <a href="#">我想成为管理</a>
+                <a href="https://scn7ok9p5g9q.feishu.cn/share/base/form/shrcneyQmmNouWMOhiOe6t7NQ4g" target="_blank">我想成为管理</a>
             </div>
             <div class="nav-item dropdown">
                 <a href="#">其他投票 <span class="dropdown-arrow">▼</span></a>
@@ -41,20 +41,48 @@
         </div>
     </header>
 
+    <div id="notification-bubble" class="notification-bubble">已复制到剪贴板！</div>
+
     <main>
         <div class="content-layout">
             <section class="content-block server-ip">
                 <h2 class="block-title">服务器ip</h2>
                 <div class="server-ip-content">
-                    <p>我们的服务器地址信息</p>
                     <div class="ip-details">
-                        <p>主服务器: mc.example.com</p>
-                        <p>创造服: creative.example.com</p>
-                        <p>生存服: survival.example.com</p>
+                        <div class="ip-item">
+                            <p>主服务器: mc.example.com</p>
+                            <button class="copy-btn" data-clipboard-text="mc.example.com">复制</button>
+                        </div>
+                        <div class="ip-item">
+                            <p>创造服: creative.example.com</p>
+                            <button class="copy-btn" data-clipboard-text="creative.example.com">复制</button>
+                        </div>
+                        <div class="ip-item">
+                            <p>生存服: survival.example.com</p>
+                            <button class="copy-btn" data-clipboard-text="survival.example.com">复制</button>
+                        </div>
+                        <div class="ip-item">
+                            <p>备用IP: backup.example.com</p>
+                            <button class="copy-btn" data-clipboard-text="backup.example.com">复制备用IP</button>
+                        </div>
                     </div>
                     <div class="server-ip-image">
                         <img src="../image/serverip.png" alt="服务器IP信息" class="ip-image">
                     </div>
+                </div>
+            </section>
+            
+            <section class="content-block wallpaper" id="wallpaper-block">
+                <!-- 壁纸将通过JavaScript动态加载 -->
+                <div class="wallpaper-controls" id="wallpaper-controls">
+                    <span>下载壁纸</span>
+                </div>
+                <div class="wallpaper-menu" id="wallpaper-menu">
+                    <ul>
+                        <li data-resolution="1080p">下载1080p</li>
+                        <li data-resolution="2k">下载2k</li>
+                        <li data-resolution="4k">下载4k</li>
+                    </ul>
                 </div>
             </section>
             
@@ -139,8 +167,13 @@
                 <h2 class="block-title">宣传片</h2>
                 <div class="video-content">
                     <div class="video-container">
-                        <img src="/placeholder.svg?height=315&width=560" alt="服务器宣传片" class="video-placeholder">
-                        <div class="play-button">▶</div>
+                        <iframe src="https://player.bilibili.com/player.html?aid=113875806717242&bvid=BV1EDfBY8Ec6&cid=1528128919&page=1&high_quality=1&danmaku=0" 
+                                scrolling="no" 
+                                border="0" 
+                                frameborder="no" 
+                                framespacing="0" 
+                                allowfullscreen="true">
+                        </iframe>
                     </div>
                     <div class="video-description">
                         <h3>我们的服务器宣传片</h3>
@@ -152,9 +185,22 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 导航栏网站. 保留所有权利.</p>
+        <p>Copyright © 2021-2025 RedStarMC. All Rights Reserved. RedStarMC服务器社区 保留所有权<br>"Minecraft"和"我的世界"是Microsoft公司在美国的商标。<br>本网站与Microsoft公司没有任何关联 <b>服务器位于：中国香港</b></p>
+        <div>
+            <a href="https://www.cloudflare.com" style="color:#DE6E22;text-decoration: none;border-style:solid;" target='_blank'>本站由Cloudflare强力驱动</a>
+            <a href="https://ipw.cn/ipv6webcheck/?site=www.redstarmc.top" title="本站支持IPv6访问" target='_blank'><img style='display:inline-block;vertical-align:middle' alt="本站支持IPv6访问" src="https://static.ipw.cn/icon/ipv6-certified-s1.svg"></a>
+            <a href="https://ipw.cn/ssl/?site=www.redstarmc.top" title="本站支持SSL安全访问" target='_blank'><img style='display:inline-block;vertical-align:middle' alt="本站支持SSL安全访问" src="https://static.ipw.cn/icon/ssl-s1.svg"></a>
+        </div>
+        <div>
+            <img alt="中央网信办（国家互联网信息办公室）违法和不良信息举报中心图标" src="12377.png" height="35" width="50">
+            <a href="https://www.12377.cn/" target='_blank' title="中央网信办（国家互联网信息办公室）违法和不良信息举报中心" style="text-decoration: none;color:white">中央网信办违法和不良信息举报中心</a>
+        </div>
+        <div>
+            <a href="https://mcjpg.org/" target='_blank' style="text-decoration: none;color:#26B2FF;border-style:double;padding: 5px;margin-right: 10px;">MCJPG服务器交流组织</a>
+            <a href="http://mccnforumunion.cn/" target='_blank' style="text-decoration: none;color:yellow;border-style:double;padding: 5px;">我的世界中文论坛联盟</a>
+        </div>
     </footer>
 
-    <script src="../js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
